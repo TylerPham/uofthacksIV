@@ -1,5 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>Welcome, start editing this template in <code>apps/base/templates/base/home.html</code></p>
+    <!-- Add form here  -->
+    <form action="/your-name/" method="post">
+        <p>
+            <label for="location">Find me jobs near: </label>
+        </p>
+        <input id="location" type="text" name="postal_code" value="Enter Postal Code" onfocus="if (this.value=='Enter Postal Code') this.value='';">
+        <input type="submit" value="OK">
+    </form>
 {% endblock %}
