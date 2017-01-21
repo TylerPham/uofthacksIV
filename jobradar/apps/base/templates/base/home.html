@@ -2,11 +2,13 @@
 
 {% block content %}
     <!-- Add form here  -->
-    <form action="/your-name/" method="post">
-        <p>
-            <label for="location"><h1>Find me jobs near: </h1></label>
-        </p>
-        <input id="location" type="text" name="postal_code" value="Enter Postal Code" onfocus="if (this.value=='Enter Postal Code') this.value='';">
-        <input type="submit" value="OK">
-    </form>
+
+<form action="/jobradar/" method="post">
+	<p>
+	    <h1>Find me jobs near: </h1>
+	</p>
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
 {% endblock %}

@@ -3,13 +3,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
+from forms import QueryForm
+
 def home(request):
     """ Default view for the root """
-    return render(request, 'base/home.html')
-
-def query_location(request):
-    return render(request, 'base/form.html')
-
-# def post_new(request):
-#     form = PostForm()
-#     return render(request, 'query_location.html', {'form': form})
+    form = QueryForm()
+    return render(request, 'base/home.html', {'form': form})
