@@ -2,7 +2,7 @@
 Find Local Jobs Near Your Area
 
 ### JobRadar
-Since location is often times an important factor while job hunting, and sometimes it's hard to filter jobs by location, we created a solution to help people hunt for jobs in a certain area.
+Location is often times an important factor while job hunting, but it's usually hard to filter jobs by location. Time is wasted looking for jobs that are too far of a commute, so we created a solution to help people hunt for jobs in a certain area.
 
 Web Application which pulls jobs from several endpoints such as Indeed, and maps their location onto a map.
 
