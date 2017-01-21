@@ -4,31 +4,30 @@ from django.db import models
 class Job(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField('job name', max_length=50)
-    company_id = ForeignKeyField(Company)
-    url = models.CharField()
-    description = models.CharField()
-    still_active = models.CharField()
+    company_id = models.ForeignKey('Company')
+    url = models.CharField(max_length=100)
+    description = models.CharField(max_length=200)
+    still_active = models.BooleanField()
 
 class Company(models.Model):
 	id = models.AutoField(primary_key=True)
-	name = models.CharField()
-	location_id = ForeignKeyField(Location)
+	name = models.CharField(max_length=50)
+	location_id = models.ForeignKey('Location')
 
 class Location(models.Model):
 	id = models.AutoField(primary_key=True)
-	latitude = DecimalField()
-	longitude = DecimalField()
-	city = models.CharField()
-	country = models.CharField()
+	latitude = models.DecimalField(decimal_places=12, max_digits=15)
+	longitude = models.DecimalField(decimal_places=12, max_digits=15)
+	city = models.CharField(max_length=30)
+	country = models.CharField(max_length=20)
 
 class Rating(models.Model):
 	id = models.AutoField(primary_key=True)
-	score = IntegerField()
-	company_id = ForeignKeyField(Company)
+	score = models.IntegerField()
+	company_id = models.ForeignKey('Company')
 
 class Distance(models.Model):
     distance_id = models.AutoField(primary_key=True)
-    center_id = ForeignKeyField(Location)
-    location_id = ForeignKeyField(Location)
-    location_to_center = DecimalField()
-
+    center_id = models.ForeignKey('Location', related_name='center_location')
+    location_id = models.ForeignKey('Location', related_name='loc_location')
+    location_to_center = models.DecimalField(decimal_places=12, max_digits=15)
