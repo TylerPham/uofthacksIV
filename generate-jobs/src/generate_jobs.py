@@ -29,11 +29,8 @@ resp = requests.get(url)
 # 		}
 def clean_json(raw_json):
 
-	# print(type(raw_json))
-
-	# decoded_json = json.loads(raw_json)
-	
 	output = []
+	output_company_names = []
 
 	for job_entry in raw_json['results']:
 		job_entry_json = {}
@@ -48,11 +45,43 @@ def clean_json(raw_json):
 		job_entry_json['url'] = job_entry['url']
 		job_entry_json['jobkey'] = job_entry['jobkey']
 
+		output_company_names.append(job_entry['company'])
 		output.append(job_entry_json)
 
-	print(json.dumps(output))
-	return json.dumps(output)
+	print(output_company_names)
+	return (output_company_names)
 
-clean_json(resp.json())
-# print(clean_json(resp.json()))
+	# print(output)
+	# return (output)
+
+#GLASSDOOR FEATURE HERE
+
+
+jobs_wo_ratings = clean_json(resp.json())
+
+# This function cannot work since glassdoor does not allow scripts to webscrape
+# def get_company_rating(company_name, city):
+# 	# url = 'http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=118106&t.k=ezeTgVMCN6k&ip=138.51.177.121&useragent=&action=employers&q=' + company_name + '&l=' + city
+# 	url = 'http://api.glassdoor.com/api/api.htm?v=1&format=json&t.p=118106&t.k=ezeTgVMCN6k&ip=138.51.177.121&useragent=Mozilla/%2F4.0&action=employers&q=IBM%20Interactive%20Experience&l=toronto'
+
+# 	print(url)
+# 	resp = requests.get(url)
+	
+# 	print(resp)
+# 	return (resp.json())
+	
+
+# get_company_rating('IBM%20Interactive%20Experience', 'Toronto')
+
+#def add_ratings(jobs_wo_ratings):
+	
+#	for job in jobs_wo_ratings:
+		
+#		job['overall_rating'] = #insert the glassdoor rating var	
+
+
+
+
+
+
 
