@@ -9,3 +9,7 @@ def home(request):
     """ Default view for the root """
     form = QueryForm()
     return render(request, 'base/home.html', {'form': form})
+
+
+def test(request):
+	if request.method == 'POST':
