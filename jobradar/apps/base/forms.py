@@ -1,4 +1,5 @@
 from django import forms
+from django.core.mail import send_mail
 
 class QueryForm(forms.Form):
 	onfocus = """
@@ -20,3 +21,10 @@ class QueryForm(forms.Form):
 
 	def clean_postal_code(self):
 		pass
+        
+	# <!-- <input
+	# id="location"
+	# type="text"
+	# name="postal_code"
+	# value="Enter Postal Code"
+	# onfocus="if (this.value=='Enter Postal Code') this.value='';"> -->

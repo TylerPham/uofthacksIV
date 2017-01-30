@@ -10,6 +10,5 @@ def home(request):
     form = QueryForm()
     return render(request, 'base/home.html', {'form': form})
 
-
 def test(request):
 	if request.method == 'POST':
